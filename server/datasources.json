@@ -1,0 +1,37 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongoDb": {
+    "url": "mongodb+srv://quick_taxt:quick_taxi@quicktaxi-y01kw.mongodb.net/test?retryWrites=true",
+    "database": "QuickTaxi",
+    "name": "mongoDb",
+    "connector": "mongodb",
+    "useNewUrlParser": true
+  },
+  "file_storage_passenger": {
+    "name": "file_storage_passenger",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "allowedContentTypes": [
+      "image/jpg",
+      "image/jpeg",
+      "image/png"
+    ],
+    "maxFileSize": "10485760",
+    "root": "./images"
+  },
+  "file_storage_driver": {
+    "name": "file_storage_driver",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "allowedContentTypes": [
+      "image/jpg",
+      "image/jpeg",
+      "image/png"
+    ],
+    "maxFileSize": "10485760",
+    "root": "./images"
+  }
+}

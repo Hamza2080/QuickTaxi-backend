@@ -1,0 +1,32 @@
+{
+  "name": "rating",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "driverRating": {
+      "type": "number",
+      "default": -1
+    },
+    "additionalComment": {
+      "type": "string",
+      "default": ""
+    },
+    "dateTime": {
+      "type": "date",
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "tripDetail": {
+      "type": "belongsTo",
+      "model": "tripDetail",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

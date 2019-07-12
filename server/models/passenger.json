@@ -1,0 +1,158 @@
+{
+  "name": "passenger",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "excludeBaseProperties": [
+    "realm",
+    "username"
+  ],
+  "hidden": [
+    "emailVerified",
+    "verified",
+    "third_party"
+  ],
+  "properties": {
+    "username": {
+      "type": "string",
+      "default": ""
+    },
+    "full_name": {
+      "type": "string",
+      "default": ""
+    },
+    "email": {
+      "type": "string",
+      "required": true,
+      "default": ""
+    },
+    "phone": {
+      "type": "string",
+      "default": ""
+    },
+    "password": {
+      "type": "string",
+      "default": ""
+    },
+    "invitation_Link": {
+      "type": "string",
+      "default": ""
+    },
+    "profile_img": {
+      "type": "string",
+      "default": ""
+    },
+    "profile_img_ext": {
+      "type": "string",
+      "default": ""
+    },
+    "profile_img_path": {
+      "type": "string",
+      "default": ""
+    },
+    "language": {
+      "type": "string",
+      "default": "english"
+    },
+    "otp_code": {
+      "type": "number",
+      "default": -1
+    },
+    "otp_code_data_time": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "favourite_driver": {
+      "type": [
+        "string"
+      ]
+    },
+    "third_party": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "tripDetails": {
+      "type": "hasMany",
+      "model": "tripDetail",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "rateDriver"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getTripByStatus"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "ridesInProgress"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "logoutPassenger"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "fav_driver"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "removeFavouriteDriver"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "fb_login"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "google_login"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "tripInAction"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "tripAcceptByDriver"
+    }
+  ],
+  "methods": {}
+}

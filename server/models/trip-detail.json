@@ -1,0 +1,108 @@
+{
+  "name": "tripDetail",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "price": {
+      "type": "number",
+      "default": -1
+    },
+    "pickup": {
+      "type": "string",
+      "required": true,
+      "default": ""
+    },
+    "dropOff": {
+      "type": "string",
+      "default": ""
+    },
+    "pickupLatitude": {
+      "type": "string",
+      "required": true,
+      "default": ""
+    },
+    "pickupLongitude": {
+      "type": "string",
+      "required": true,
+      "default": ""
+    },
+    "dropoffLatitude": {
+      "type": "string",
+      "default": ""
+    },
+    "dropoffLongitude": {
+      "type": "string",
+      "default": ""
+    },
+    "pickupDateTime": {
+      "type": "date",
+      "default": ""
+    },
+    "dropoffDateTime": {
+      "type": "date",
+      "default": ""
+    },
+    "tripStatus": {
+      "type": "string",
+      "default": "pending"
+    },
+    "tripType": {
+      "type": "string",
+      "default": ""
+    },
+    "amount": {
+      "type": "number",
+      "default": 0
+    },
+    "paymentType": {
+      "type": "string",
+      "default": "cash"
+    },
+    "no_of_seats": {
+      "type": "number",
+      "default": 4
+    },
+    "no_of_passenger": {
+      "type": "number",
+      "default": 4
+    },
+    "smallPet": {
+      "type": "boolean",
+      "default": true
+    },
+    "5_star_driver": {
+      "type": "boolean",
+      "default": true
+    },
+    "childSeat": {
+      "type": "number",
+      "default": 0
+    },
+    "fav_driver": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "driver": {
+      "type": "belongsTo",
+      "model": "driver",
+      "foreignKey": ""
+    },
+    "passenger": {
+      "type": "belongsTo",
+      "model": "passenger",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

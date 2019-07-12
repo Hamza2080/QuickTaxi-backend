@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+</head>
+
+
+<body>
+
+    <h1>This is a Heading</h1>
+    <p>This is a paragraph.</p>
+    <script>
+        socket = io.connect('http://localhost:3000/passengers');
+        console.log('connecting user to socket server');
+        
+        socket.emit("passengerConnected", {"passengerId" : "123456789"})
+
+        socket.on ("abcd", function (data) {
+            // console.log(event)
+            socket.on("event", function (da){
+                console.log(da)
+            })
+        })
+        socket.on('error', function (err) {
+            console.log('there was an error', err);
+        });
+
+        socket.on('user joined', function (data) {
+            if (data.user_count == 2) {
+                console.log('users are connected');
+                users_connected_handler();
+            }
+        });
+
+        socket.on('webrtc', function (data) {
+            message_received_handler(data.data);
+        });
+
+        socket.on('connect', function () {
+            console.log('socket connection established');
+            console.log("connecting to " )
+            // socket.emit('join room', {
+            //     room: _room
+            // });
+            connected = true;
+        });
+    </script>
+</body>
+
+</html>

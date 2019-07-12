@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "mongoDb",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Message": {
+    "dataSource": null
+  },
+  "driver": {
+    "dataSource": "mongoDb",
+    "public": true
+  },
+  "passenger": {
+    "dataSource": "mongoDb",
+    "public": true
+  },
+  "passenger_img": {
+    "dataSource": "file_storage_passenger",
+    "public": true
+  },
+  "driver_img": {
+    "dataSource": "file_storage_driver",
+    "public": true
+  },
+  "driver_rel_img": {
+    "dataSource": "file_storage_passenger",
+    "public": true
+  },
+  "vehicleCompany": {
+    "dataSource": "mongoDb",
+    "public": true
+  },
+  "vehicle": {
+    "dataSource": "mongoDb",
+    "public": true
+  },
+  "tripDetail": {
+    "dataSource": "mongoDb",
+    "public": true
+  },
+  "rating": {
+    "dataSource": "mongoDb",
+    "public": true
+  },
+  "admin": {
+    "dataSource": "mongoDb",
+    "public": true
+  }
+}

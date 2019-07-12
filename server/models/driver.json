@@ -1,0 +1,205 @@
+{
+  "name": "driver",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "emailVerificationRequired": true
+  },
+  "excludeBaseProperties": [
+    "realm",
+    "username"
+  ],
+  "hidden": [
+    "emailVerified"
+  ],
+  "properties": {
+    "username": {
+      "type": "string",
+      "default": ""
+    },
+    "full_name": {
+      "type": "string",
+      "default": ""
+    },
+    "email": {
+      "type": "string",
+      "required": true,
+      "default": ""
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "default": ""
+    },
+    "password": {
+      "type": {
+        "type": null
+      }
+    },
+    "address": {
+      "type": "string",
+      "default": ""
+    },
+    "profile_img": {
+      "type": "string",
+      "default": ""
+    },
+    "profile_img_ext": {
+      "type": "string",
+      "default": ""
+    },
+    "profile_img_path": {
+      "type": "string",
+      "default": ""
+    },
+    "driver_status": {
+      "type": "string",
+      "default": "accepted"
+    },
+    "otp_code": {
+      "type": "number",
+      "default": -1
+    },
+    "otp_code_date_time": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "car_f_img": {
+      "type": "string",
+      "default": ""
+    },
+    "car_b_img": {
+      "type": "string",
+      "default": ""
+    },
+    "id_f_img": {
+      "type": "string",
+      "default": ""
+    },
+    "id_b_img": {
+      "type": "string",
+      "default": ""
+    },
+    "license_f_img": {
+      "type": "string",
+      "default": ""
+    },
+    "license_b_img": {
+      "type": "string",
+      "default": ""
+    },
+    "small_pets": {
+      "type": "boolean",
+      "default": false
+    },
+    "account_status": {
+      "type": "string",
+      "default": ""
+    },
+    "account_reason": {
+      "type": "string",
+      "default": ""
+    },
+    "iban": {
+      "type": "string",
+      "default": ""
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "rating": {
+      "type": "object",
+      "default": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      }
+    },
+    "child_seat": {
+      "type": "boolean",
+      "default": true
+    },
+    "allow_pets": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "vehicles": {
+      "type": "hasOne",
+      "model": "vehicle",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "verifyOtp"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "reSendOTP"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "logoutDriver"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__get__vehicles"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__create__vehicles"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__update__vehicles"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__destroy__vehicles"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getAllTrips"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "rateDriver"
+    }
+  ],
+  "methods": {}
+}
